@@ -51,13 +51,3 @@ while calculator_condition:
 		print("Thanks for using calculator ! See you again.")
 		calculator_condition = False
 
-
-
-
-
-
-
-
-
-
-

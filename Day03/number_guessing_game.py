@@ -1,25 +1,16 @@
-"""
-1. Welcome Message: Display a welcome message and explain the game rules to the user.
-
-2. Random Number Generation: Generate a random number within a specified range (e.g., 1 to 100).
-
-3. User Input: Prompt the user to guess the number.
-4. Feedback: Provide feedback on whether the guess is too high, too low, or correct.
-5. Repeat: Allow the user to guess again until they find the correct number.
-6. End Game: Congratulate the user and display the number of attempts taken.
-"""
 import random
 
 LEADERBOARD_FILE = "leaderboard.txt"
 
+# Generate a random number and assign it to a variable
 def get_random_number(min_value, max_value):
 	secret_number = random.randint(min_value, max_value)
 	return secret_number
 
 def print_greeting():
-	
 	print("\n\nWelcome to Number Guessing Game\n")
 
+# Print Menu and get difficulty level as input
 def print_menu():
 	print("Select Difficulty Levels:")
 	print("1. Easy (Range 1 to 20), 10 attempts")
@@ -30,6 +21,7 @@ def get_difficulty_level():
 	difficulty = int(input("Enter your difficulty range (1/2/3):"))
 	return difficulty
 
+# Set minimum value, Maximum value and maximum attempts
 def get_min_max_attempts_for_difficulty_level(difficulty):
 	if difficulty == 1:
 		min_value, max_value, max_attempts = 1, 20, 10
@@ -38,34 +30,34 @@ def get_min_max_attempts_for_difficulty_level(difficulty):
 	elif difficulty == 3:
 		min_value, max_value, max_attempts = 1, 100, 5
 	# Validation for number other than 1, 2, 3
-	
 	return min_value, max_value, max_attempts
 
+# Get Winner's name
 def get_winners_detail():
 	name = input("Player Name : ")
 	return name
 
+# Read the file and get leaderboard data
 def show_leaderboard():
 	with open(LEADERBOARD_FILE, "r") as fp:
 		leaderboard = [line.strip().split(",") for line in fp.readlines()]
 		leaderboard = [(name, int(level), int(attempts)) for name, level, attempts in leaderboard]
 		
-
+# Update and save leaderboard
 def update_leaderboard():
 	pass
 
 def save_leaderboard(name, difficulty_level, no_of_attempts):
-	
 	with open(LEADERBOARD_FILE, "a") as fp:
 		fp.write(f"{name},{difficulty_level},{no_of_attempts}")
 	
-
+# Game Logic
 def play():
 	difficulty = get_difficulty_level()
 	min_value, max_value, max_attempts = get_min_max_attempts_for_difficulty_level(difficulty)
 	
 	secret_number = get_random_number(min_value, max_value)
-	print("Secret Number is ", secret_number)
+	# print("Secret Number is ", secret_number)
 	atempts = 0
 	
 	while True:
@@ -86,6 +78,7 @@ def play():
 			print("Sorry !  You have exhausted max attempts\n")
 			break
 
+# Ask whether the user wants to play the game again
 def play_again():
 	play_again = input("Do you want to play again !!! (Y/N)")
 	if play_again.lower() == "y":
@@ -93,21 +86,12 @@ def play_again():
 	else:
 		print("Thank You for playing !!! See you again\n")
 
+# Use functions to run the game
 def number_guessing_game():
-	
 	print_greeting()
 	print_menu()
 	play()
 	play_again()
 	
-
-#number_guessing_game()
-	
-	
-	
-	
-	
-	
-	
-	
+number_guessing_game()
 	
