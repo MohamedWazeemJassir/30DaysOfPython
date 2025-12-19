@@ -44,10 +44,16 @@ while calculator_condition:
 		print("Division")
 		number_1 = int(input(" Enter number 1 "))
 		number_2 = int(input(" Enter number 2 "))
-		result = number_1 / number_2
-		print("The result is", result)
+		if number_2 == 0:
+			print("Error: Division by zero is not allowed.")
+		else:
+			result = number_1 / number_2
+			print("The result is", result)
 	
 	elif user_operation == 5:
 		print("Thanks for using calculator ! See you again.")
 		calculator_condition = False
+
+	else:
+		print("Invalid input. Enter a valid number.")
 
