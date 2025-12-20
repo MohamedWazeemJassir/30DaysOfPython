@@ -9,6 +9,33 @@ print("""
 
 calculator_condition = True
 
+def add():
+	number_1 = int(input(" Enter number 1 "))
+	number_2 = int(input(" Enter number 2 "))
+	result = number_1 + number_2
+	print("The result is", result)
+
+def subtract():
+	number_1 = int(input(" Enter number 1 "))
+	number_2 = int(input(" Enter number 2 "))
+	result = number_1 - number_2
+	print("The result is", result)
+
+def multiply():
+	number_1 = int(input(" Enter number 1 "))
+	number_2 = int(input(" Enter number 2 "))
+	result = number_1 * number_2
+	print("The result is", result)
+
+def divide():
+	number_1 = int(input(" Enter number 1 "))
+	number_2 = int(input(" Enter number 2 "))
+	if number_2 == 0:
+			print("Error: Division by zero is not allowed.")
+	else:
+		result = number_1 / number_2
+		print("The result is", result)
+
 while calculator_condition:
 	print("\n")
 	print("Welcome to calculator !")
@@ -18,37 +45,22 @@ while calculator_condition:
 	if user_operation == 1:
 		# Addition Logic
 		print("Addition")
-		number_1 = int(input(" Enter number 1 "))
-		number_2 = int(input(" Enter number 2 "))
-		result = number_1 + number_2
-		print("The result is", result)
+		add()
 		
 	elif user_operation == 2:
 		# Subtraction Logic
 		print("Subtract")
-		number_1 = int(input(" Enter number 1 "))
-		number_2 = int(input(" Enter number 2 "))
-		result = number_1 - number_2
-		print("The result is", result)
+		subtract()
 		
 	elif user_operation == 3:
 		# Multiplication Logic
 		print("Multiplication")
-		number_1 = int(input(" Enter number 1 "))
-		number_2 = int(input(" Enter number 2 "))
-		result = number_1 * number_2
-		print("The result is", result)
+		multiply()
 		
 	elif user_operation == 4:
 		# Division Logic
 		print("Division")
-		number_1 = int(input(" Enter number 1 "))
-		number_2 = int(input(" Enter number 2 "))
-		if number_2 == 0:
-			print("Error: Division by zero is not allowed.")
-		else:
-			result = number_1 / number_2
-			print("The result is", result)
+		divide()
 	
 	elif user_operation == 5:
 		print("Thanks for using calculator ! See you again.")
