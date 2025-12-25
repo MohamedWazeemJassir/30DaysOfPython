@@ -104,5 +104,5 @@ while calculator_condition:
 		calculator_condition = False
 
 	else:
-		print("Invalid input. Enter a valid number.")
+		print("Please select a valid operation (1–8).")
 
