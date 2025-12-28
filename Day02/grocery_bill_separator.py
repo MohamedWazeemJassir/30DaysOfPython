@@ -17,12 +17,14 @@ user_picked_commodity = {}
 bill_items = []
 
 for itr in range(total_items):
-
 	# Get item name and weight
 	grocery_name = input("Enter grocery item name: " + str(itr) + " ")
+	if grocery_name not in commodity_price:
+		print("Item not available")
+		grocery_name = input("Enter grocery item name: " + str(itr) + " ")
 	weight = float(input("Weight of " + grocery_name + " "))
 
-	# Append item name to list and calculate price
+	# Append item name to list an d calculate price
 	groceries.append(grocery_name)
 	user_picked_commodity[grocery_name] = weight * commodity_price.get(grocery_name, 0)
  	
@@ -39,6 +41,9 @@ for itr in range(total_items):
 print("Groceries collected ", user_picked_commodity)
 
 # Print all items
+grand_total = 0
 for item in bill_items:
 	print(item)
+	grand_total += item[2]
 
+print("Grand total: ", grand_total)
