@@ -12,7 +12,11 @@ print("""
 
 calculator_condition = True
 
-# Define functions for each operation
+# Task 4 - Use functions
+	# 1. add(a, b)
+	# 2. subtract(a, b)
+	# 3. multiply(a, b)
+	# 4. divide(a, b)
 def add():
 	number_1 = int(input(" Enter number 1 "))
 	number_2 = int(input(" Enter number 2 "))
@@ -34,12 +38,15 @@ def multiply():
 def divide():
 	number_1 = int(input(" Enter number 1 "))
 	number_2 = int(input(" Enter number 2 "))
+	# Task 1 - Handle Division by Zero. 
+	# If user tries to divide by 0, show a friendly message
 	if number_2 == 0:
 			print("Error: Division by zero is not allowed.")
 	else:
 		result = number_1 / number_2
 		print("The result is", result)
 
+# Task 3 - Add advanced operations (Modulus, Power, Floor Division)
 def modulus():
 	number_1 = int(input(" Enter number 1 "))
 	number_2 = int(input(" Enter number 2 "))
@@ -55,7 +62,11 @@ def power():
 def floor_division():
 	number_1 = int(input(" Enter number 1 "))
 	number_2 = int(input(" Enter number 2 "))
-	result = number_1 // number_2
+	if number_2 == 0:
+			print("Error: Division by zero is not allowed.")
+	else:
+		result = number_1 // number_2
+		print("The result is", result)
 	print("The result is", result)	
 
 while calculator_condition:
@@ -103,6 +114,8 @@ while calculator_condition:
 		print("Thanks for using calculator ! See you again.")
 		calculator_condition = False
 
+	# Task 2 - Invalid Choice Handling: 
+	# If user enters an invalid menu option, show, "Please select a valid operation (1–4)"
 	else:
 		print("Please select a valid operation (1–8).")
 
