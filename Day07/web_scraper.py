@@ -1,12 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
 
-
-
+# Function to scrape and print data using the URL
 def scrape(URL):
 	response = requests.get(URL)
 	soup = BeautifulSoup(response.text, "lxml")
-
 	quotes = soup.find_all("div", class_="quote")
 
 	for quote in quotes:
@@ -33,27 +31,7 @@ pages_to_collect = 20
 scrape(URL)
 
 # From Second Page
-
 for page_no in range(2, 21):
 	URL = f"https://quotes.toscrape.com/page/{page_no}/"
 	scrape(URL)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
