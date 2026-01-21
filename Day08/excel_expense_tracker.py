@@ -4,18 +4,20 @@ from datetime import datetime
 
 EXCEL_FILENAME = "modular_finances.xlsx"
 
+# Initialize tracker
 def initialize_tracker():
     return {
         'expenses': [],
         'savings': []
     }
 
+# load data from excel file
 def load_from_excel(filename=EXCEL_FILENAME):
     tracker_data = initialize_tracker()
     
     if not os.path.exists(filename):
         return tracker_data
-
+    
     try:
         df_expenses = pd.read_excel(filename, sheet_name='Expenses')
         tracker_data['expenses'] = df_expenses.to_dict('records')
@@ -30,6 +32,7 @@ def load_from_excel(filename=EXCEL_FILENAME):
 
     return tracker_data
 
+# Add transactions
 def add_transaction(tracker_data, type, amount, category, description=""):
     try:
         amount = float(amount)
@@ -52,6 +55,7 @@ def add_transaction(tracker_data, type, amount, category, description=""):
     else:
         pass
 
+# Saves data to excel file
 def save_to_excel(tracker_data, filename=EXCEL_FILENAME):
     expenses = tracker_data.get('expenses', [])
     savings = tracker_data.get('savings', [])
