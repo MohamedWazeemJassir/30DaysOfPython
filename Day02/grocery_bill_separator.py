@@ -52,6 +52,10 @@ def calculate_bill():
 		grand_total += item[3]
 	# Task 4 - Add 5% GST on total amount on all commodities.
 	grand_total += grand_total * 0.05
+	if grand_total > 500:
+		grand_total -= grand_total * 0.1
+	elif grand_total > 1000:
+		grand_total -= grand_total * 0.15
 	return grand_total
 
 def print_bill():
