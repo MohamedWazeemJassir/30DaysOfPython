@@ -20,10 +20,9 @@ def add_transaction(transaction_type, amount, category, description=""):
 		"Description": description
 	}
 	
-	if t
-	
-	df_expenses = pd.DataFrame(expenses)
-	df_savings = pd.DataFransaction_type.lower() == "expense":
+	if transaction_type.lower() == "expense":
+		df_expenses = pd.DataFrame(expenses)
+		df_savings = pd.DataFrame(expenses)
 		tracker["expenses"].append(record)
 	elif transaction_type.lower() == "savings":
 		tracker["savings"].append(record)
@@ -31,14 +30,12 @@ def add_transaction(transaction_type, amount, category, description=""):
 def save_to_excel(filename=TRANSACTION_FILE):
 	
 	expenses = tracker.get("expenses", [])
-	savings = tracker.get("savings", [])rame(savings)
+	savings = tracker.get("savings", [])
 	
 	with pd.ExcelWriter(filename, engine="openpyxl") as writer:
 		df_expenses.to_excel(writer, sheet_name = "Expenses")
 		df_savings.to_excel(writer, sheet_name = "Savings")
 	
-
-
 def get_transactional_input():
 	transaction_type = input("Enter transaction Type : ")
 	amount = input("How much ? ")

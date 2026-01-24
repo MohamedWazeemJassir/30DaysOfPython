@@ -30,11 +30,9 @@ def view_books():
 		SELECT * FROM books;
 	""")
 	books = cursor.fetchall()
-
 	if not books:
 		print("No Books Found")
 		return
-
 	print("Books List")
 	for book in books:
 		print(f"id: {book[0]}, titel: {book[1]}")
@@ -43,23 +41,17 @@ def update_book_price(book_id, new_price):
 	query = f"UPDATE books SET price = {new_price} WHERE id = {book_id}"
 	cursor.execute(query)
 	conn.commit()
-
 	if cursor.rowcount == 0:
 		print("Book Id not found")
 	else:
 		print("Book details update fine")
 
 # """ - Multi Line String
-
-"""
-Hi How Are You ?
-"""
 def delete_book(book_id):
 	cursor.execute("""
 		DELETE FROM books WHERE id = ?
 	""", (book_id,))
 	conn.commit()
-
 	if cursor.rowcount == 0:
 		print("Book Id not found")
 	else:
@@ -76,32 +68,26 @@ def show_menu():
 while True:
 	show_menu()
 	choice = input("Enter your choice : ")
-
 	if choice == "1":
 		title = input("Enter book title : ")
 		author = input("Enter author name : ")
 		price = float(input("Enter book price : "))
 		year = int(input("Enter year of publish : "))
-
 		add_book(title, author, price, year)
-
 	elif choice == "2":
 		view_books()
-
 	elif choice == "3":
 		book_id = input("Enter book id : ")
 		new_price = float(input("Enter new book price : "))
 		update_book_price(book_id, new_price)
-
 	elif choice == "4":
 		book_id = int(input("Enter book id : "))
 		delete_book(book_id)
-
 	elif choice == "5":
 		print("[+] Exiting book tracker")
 		break
-
 	else:
 		print("Invalid Choice. Please select 1-5")
 
 conn.close()
+

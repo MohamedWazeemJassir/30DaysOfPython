@@ -36,16 +36,12 @@ def get_category(extension):
 
 def organize_files():
 	print(f"Scanning: {SOURCE_DIR}...")
-	
 	for file in SOURCE_DIR.iterdir():
-		
 		# Skip the folders
 		if file.is_dir():
 			continue
-		
 		extension = file.suffix
 		category = get_category(extension)
-		
 		target_folder = SOURCE_DIR / category
 		target_path = target_folder / file.name
 		
@@ -55,7 +51,6 @@ def organize_files():
 		except Exception as ex:
 			print(f"Error Moving {file.name}")
 		
-
 def migrate():
 	if check_path_exists():
 		print("Proceed")
